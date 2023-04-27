@@ -24,22 +24,9 @@ INSERT INTO users (
     'new_user'
 );
 
--- DELIMITER //
--- CREATE PROCEDURE yourproc()
--- BEGIN
---     IF condition THEN
---         SELECT a,b,c FROM table1;
---     ELSE
---         SELECT d,e,f FROM table2;
---     END IF;
--- END//
--- DELIMITER ;  
-
-
-
 -- Admin
 START TRANSACTION;
-UPDATE users SET user_role = 'admin' WHERE username = 'WhoAmI';
+UPDATE users SET user_role = 'admin' WHERE username = 'WhoAmI' WITH GRANT OPTION;
 GRANT ALL ON our_database TO 'WhoAmI'@'localhost';
 COMMIT;
 
