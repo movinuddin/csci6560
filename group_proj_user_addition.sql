@@ -26,8 +26,8 @@ INSERT INTO users (
 
 -- Admin
 START TRANSACTION;
-UPDATE users SET user_role = 'admin' WHERE username = 'WhoAmI' WITH GRANT OPTION;
-GRANT ALL ON our_database TO 'WhoAmI'@'localhost';
+UPDATE users SET user_role = 'admin' WHERE username = 'WhoAmI';
+GRANT ALL ON our_database TO 'WhoAmI'@'localhost' WITH GRANT OPTION;
 COMMIT;
 
 START TRANSACTION;
